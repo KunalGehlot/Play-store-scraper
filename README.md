@@ -27,8 +27,8 @@ It creates two beautiful wordcloud in the shape and color of the Indian flag for
   - [app_store_reviews.py](#app_store_reviewspy)
   - [generate_wordclouds.py](#generate_wordcloudspy)
 - [Result](#result)
-  - [Postive Reviews WordCloud](#postive-reviews-wordcloud)
-  - [Negative Reviews WordCloud](#negative-reviews-wordcloud)
+  - [5 Star Reviews WordCloud](#5-star-reviews-wordcloud)
+  - [1 Star Reviews WordCloud](#1-star-reviews-wordcloud)
 
 ## Taget application: Arogya Setu 🧡
 
@@ -112,6 +112,18 @@ Put the webdriver in your system `PATH` or in th working directory.
 
 A Jupyter notebook is perent in the `misc/` directory with the name [`buildenv.ipynb`](misc\buildenv.ipynb) which was used to create both the scripts as Jupyter provides a breakdown of the whole program cell-by-cell with easy execution if any error arises on any block.
 
+You can run these scripts by executing 
+
+```
+python pp_store_reviews.py
+```
+
+```
+python generate_wordclouds.py
+```
+
+in the terminal
+
 ## app_store_reviews.py
 
 This script uses selenium to open the application page for ArogyaSetu app and scrolls down and clicks on `SHOW MORE` for about 20 times to load enough reviews to scrape.
@@ -121,6 +133,8 @@ After the reviews are loaded, selenium driver then Expands all the reviews on th
 BeautifulSoup now takes over and loads the HTML content on a variable and we use its in-built functions to extract all the content from the HTML source using class and tag accessors.
 
 All of the data is then stored in a pandas dataframe which then saves it to [`ArogyaSetuReviews.csv`](data\ArogyaSetuReviews.csv) in `data/` directory.
+
+*Note: Replace the link on line 17 to get reviews of another application*
 
 ## generate_wordclouds.py
 
@@ -132,10 +146,10 @@ Wordcloud library then creates the Wordclouds which is then masked, displayed an
 
 # Result
 
-## Postive Reviews WordCloud
+## 5 Star Reviews WordCloud
 
 ![Positive Reviews](img/pos.jpg)
 
-## Negative Reviews WordCloud
+## 1 Star Reviews WordCloud
 
 ![Negative Reviews](img/neg.jpg)
